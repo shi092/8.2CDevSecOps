@@ -1,4 +1,6 @@
-{
+"start": "node app.js",
+  "test": "mocha test/unit/*.js",
+  "coverage": "nyc npm test"{
   "name": "goof",
   "version": "1.0.1",
   "description": "A vulnerable todo demo application",
