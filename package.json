@@ -1,4 +1,14 @@
-"start": "node app.js",
+{
+  "name": "goof",
+  "version": "1.0.1",
+  "description": "A vulnerable Node.js application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha test/unit/*.js",
+    "coverage": "nyc npm test"
+  }
+}"start": "node app.js",
   "test": "mocha test/unit/*.js",
   "coverage": "nyc npm test"{
   "name": "goof",
