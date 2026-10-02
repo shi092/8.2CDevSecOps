@@ -36,18 +36,17 @@ pipeline {
 
     post {
         always {
-            emailext (
-                subject: "Build ${currentBuild.fullDisplayName} - ${currentBuild.currentResult}",
-                body: """
-                    <h3>Jenkins Build Details</h3>
-                    <p><b>Project:</b> ${env.JOB_NAME}</p>
-                    <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
-                    <p><b>Status:</b> ${currentBuild.currentResult}</p>
-                    <p>Check console output at: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
-                """,
-                to: 's225546927@deakin.edu.au',
-                attachLog: true
-            )
+            mail to: 's225546927@deakin.edu.au',
+                 subject: "Jenkins Build ${env.JOB_NAME} #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
+                 body: """
+                    Jenkins Build Details
+
+                    Project: ${env.JOB_NAME}
+                    Build Number: ${env.BUILD_NUMBER}
+                    Status: ${currentBuild.currentResult}
+                    
+                    Console Output: ${env.BUILD_URL}console
+                 """
         }
     }
 }
