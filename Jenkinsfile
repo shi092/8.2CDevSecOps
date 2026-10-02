@@ -36,7 +36,7 @@ pipeline {
 
     post {
         always {
-            mail to: 's225546927@deakin.edu.au',
+            mail to: 'shinga.goto0@gmail.com',
                  subject: "Jenkins Build ${env.JOB_NAME} #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
                  body: """
                     Jenkins Build Details
