@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        // Ensures Jenkins locates node/npm on macOS
+        PATH = "/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:${env.PATH}"
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -40,7 +45,7 @@ pipeline {
                     <p><b>Status:</b> ${currentBuild.currentResult}</p>
                     <p>Check console output at: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
                 """,
-                to: 'your-email@example.com',
+                to: 's225546927@deakin.edu.au',
                 attachLog: true
             )
         }
